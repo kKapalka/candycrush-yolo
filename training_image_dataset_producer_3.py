@@ -52,7 +52,7 @@ def merge_image(back, front, x,y):
 
 def load_candies():
     candy_set = []
-    path = '../candies/'
+    path = 'candies/'
     files = os.listdir(path)
     files.sort()
     currentFilename = ''
@@ -95,9 +95,9 @@ def generate_image(background):
     for foreground in candy_foreground_set:
         final_filename = "img"+str(image_number)
         rand = random.random()
-        destination = "../training_imgs/train"
+        destination = "training_imgs/train"
         if(rand > 0.85):
-            destination = "../training_imgs/val"
+            destination = "training_imgs/val"
         with open(destination+"/labels/"+final_filename+".txt", 'w') as f:
             f.write('\n'.join(foreground[1]))
         image = merge_image(background, foreground[0], 0, 0)
